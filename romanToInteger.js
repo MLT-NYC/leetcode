@@ -52,3 +52,25 @@ var romanToInt = function(roman) {
 
     return counter;
 };
+
+// Recursively
+    // Base-case: if roman is length of 1, return the value of that symbol.
+
+    // Recursive-case:
+    // If current value is equal or greater than the following value,
+        // return that value plus the return value of another romanToInt call (with the first char dropped)
+    // Else,
+        // return the negstive of that value plus the return value of another romanToInt call (with the first char dropped)
+       
+var romanToInt = function (roman) { 
+    const romanSystem = {
+        I: 1, V: 5, X: 10, L: 50, C: 100, D: 500, M: 1000
+    };
+    if (roman.length === 1) return romanSystem[roman[0]];
+
+    if (romanSystem[roman[0]] >= romanSystem[roman[1]]) {
+        return romanSystem[roman[0]] + romanToInt(roman.slice(1, roman.length));
+    } else {
+        return -romanSystem[roman[0]] + romanToInt(roman.slice(1, roman.length));
+    }
+};
