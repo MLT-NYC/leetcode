@@ -13,9 +13,11 @@ var strStr = function (haystack, needle) {
     while (i2 <= haystack.length) {
         if (haystack.slice(i1, i2) === needle) return i1;
 
-        i1++
-        i2++
+        i1++;
+        i2++;
     }
 
     return -1;
 };
+
+// Recursively
