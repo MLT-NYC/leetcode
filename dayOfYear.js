@@ -32,5 +32,5 @@ const dayOfYear = function (date) {
     return days + day;
 };
 
-const date = "2019-01-09";
-console.log(dayOfYear(date));
+// const date = "2019-01-09";
+// console.log(dayOfYear(date));
