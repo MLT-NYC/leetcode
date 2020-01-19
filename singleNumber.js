@@ -14,7 +14,10 @@
 // Output: 4
 
 var singleNumber = function(nums) {
+    //We created an object to use as a counter.
     const numsCounter = {};
+    //We iterate over each number, counting them as one if they dont exist in numsCounter or as two if they do.
     nums.forEach(num => numsCounter[num] ? numsCounter[num] += 1 : numsCounter[num] = 1);
+    //We iterate over every entry in numbsCounter, returning the key that has a count of less than 2.
     for ([key, value] of Object.entries(numsCounter)) if (value < 2) return key;
 };
