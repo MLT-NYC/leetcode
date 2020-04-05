@@ -7,20 +7,16 @@
 // Minimize the total number of operations.
 
 var moveZeroes = function (nums) {
-    let zeros = 0;
-
+    let numZeroes = 0;
     for (let i = 0; i < nums.length; i++) {
-        if (nums[i] === 0) {
-            nums.splice(i, 1);
-            zeros += 1;
-
-            i = i - 1;
+        if (nums[i] !== 0) {
+            nums[numZeroes] = nums[i];
+            numZeroes += 1;
         }
     }
 
-    for (let i = 0; i < zeros; i++) {
-        nums.push(0);
+    while (numZeroes < nums.length) {
+        nums[numZeroes] = 0;
+        numZeroes += 1;
     }
-
-    return nums;
-};
+}
