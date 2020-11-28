@@ -36,30 +36,45 @@ var letterCombinations = function (digits) {
         '9': ['w', 'x', 'y', 'z']
     };
 
+    // We create two arrays; 
+    // the first, 'combinations', in order to track and return all created combinations,
     let combinations = [];
-    let updatedCombinations = [];
+    // the second, 'tempCombinations', in order to track and push new combinations based off of 'combinations' into 'combinations'
+    let tempCombinations = [];
 
+    // We then iterate over every digit, grabbing from the map the corresponding letters.
     for (let i = 0; i < digits.length; i++) {
         const currDigit = digits[i];
         const letters = letterMap[currDigit];
 
+        //  If there are no combinations,
+        //  then the first combination of letters is the first set of combinations to consider.
         if (!combinations.length) {
             combinations = [...letters];
             continue;
-        };
+        }
 
+        // Otherwise, if there are already existing combinations,
+        // we iterate over every letter of the current letters to begin creating new combinations.
         for (let j = 0; j < letters.length; j++) {
-            const letter = letters[j]
+            const letter = letters[j];
 
+            // For every letter, we iterate over every combination: 
+            // we create a new combination (a concatenation of the every combination plus the current letter),
+            // and push it into array 'tempCombinations'.
             for (let k = 0; k < combinations.length; k++) {
                 const combination = combinations[k];
-                updatedCombinations.push(combination + letter)
+                tempCombinations.push(combination + letter);
             }
         }
 
-
-        combinations = updatedCombinations;
-        updatedCombinations = []
+        // Once we have created new combinations ('tempCombinations'),
+        // based on the previous combinations and the current array of letters,
+        // we set combinations to be equal to the new combinations.
+        combinations = tempCombinations;
+        // We then reassign the variable responsible for tracking the new combinations to an empty array
+        // for the next iteration of digits.
+        tempCombinations = [];
     }
 
 
