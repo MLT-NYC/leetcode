@@ -32,3 +32,24 @@ var plusOne = function(digits) {
     
     return [...plusOne(digits.slice(0, digits.length-1)), 0]
 };
+
+var plusOne = function (digits) {
+    const newDigits = [...digits];
+
+    for (let i = newDigits.length - 1; i >= 0; i--) {
+        const currDigit = digits[i];
+        const newDigit = currDigit + 1;
+
+        if (i < 1 && newDigit > 9) {
+            newDigits[i] = 0;
+            newDigits.unshift(1)
+        } else if (newDigit > 9) {
+            newDigits[i] = 0;
+        } else {
+            newDigits[i] = newDigit;
+            break;
+        }
+    }
+
+    return newDigits;
+};
