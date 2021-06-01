@@ -1,5 +1,7 @@
 require_relative 'median'
 
+# Given an array of integers, calculate the respective first quartile, second quartile, and third quartile. It is guaranteed that elements are integers.
+
 def quartiles(arr)
     sorted = arr.sort
     length = sorted.length
