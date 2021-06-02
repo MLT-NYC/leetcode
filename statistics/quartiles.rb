@@ -12,7 +12,7 @@ def quartiles(arr)
         lower = sorted[0...mid]
         upper = sorted[mid+1...length]
     else
-        lower = sorted[0..mid]
+        lower = sorted[0...mid]
         upper = sorted[mid...length]
     end
 
